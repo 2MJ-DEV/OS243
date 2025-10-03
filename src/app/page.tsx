@@ -4,6 +4,9 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Loading from "@/components/Loading";
 import Image from "next/image";
 import { AiOutlineLike } from "react-icons/ai";
+import Logo from "@/components/ui/Logo";
+import { GrFavorite } from "react-icons/gr";
+import { RiShareLine } from "react-icons/ri";
 
 export default function HomePage() {
   return (
@@ -47,20 +50,39 @@ export default function HomePage() {
 
             {/* Projects Preview Section */}
             <section className="">
-              <div className="w-full h-[300px] relative border p-5 grid grid-cols-3 gap-4">
-                <div className="">
-                  <div className="w-full h-50 relative border"></div>
-                  <div className="">
-                    <div className="">
-                      <h2 className="font-bold text-lg">Titre du projet</h2>
-                      <p className="font-light text-sm">Brève description du projet...</p>
+              <div className="grid lg:grid-cols-3 gap-4">
+                <div className="border border-zinc-950/5 p-1 rounded-xl flex flex-col gap-2">
+                
+                  <div className="w-full h-72 relative rounded-xl overflow-hidden">
+                    <Image
+                      src="/ct.webp"        // <-- corrige l’extension !
+                      alt="Project Image"
+                      fill
+                      className="object-cover rounded-xl"
+                    />
+                  </div>
+
+                  <div className="flex flex-col px-3 py-2 gap-2">
+
+                    <div className="flex flex-col mb-4 gap-2">
+                      <div className="flex justify-between items-center mb-2">
+                        <h2 className="font-bold text-lg">
+                          <Logo />
+                        </h2>
+                        <div className="flex gap-4">
+                          <GrFavorite size={25} />
+                          <RiShareLine size={25} />
+                        </div>
+                      </div>
+                      <p className="font-light text-sm line-clamp-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum velit assumenda ullam sint facere animi beatae, nesciunt eos molestias eaque! Non ut tenetur dolorum? Perferendis culpa sequi quo nesciunt voluptatibus.</p>
                     </div>
-                    <div className="">
+
+                    <div className="flex justify-between items-center">
                       <div className="">
-                        <span>NextJs</span>
+                        <span className="border border-zinc-950/5 rounded-full px-2 py-1 bg-[#007FFF] text-white">TypeScript</span>
                       </div>
                       <div className="">
-                        <AiOutlineLike size={25} />
+                        <a href="#" className="font-light hover:underline hover:text-[#007FFF]">Jules MUKADI</a>
                       </div>
                     </div>
                   </div>
