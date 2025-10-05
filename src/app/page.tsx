@@ -3,10 +3,10 @@ import Template from "./template";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Loading from "@/components/Loading";
 import Image from "next/image";
-import { AiOutlineLike } from "react-icons/ai";
 import Logo from "@/components/ui/Logo";
 import { GrFavorite } from "react-icons/gr";
 import { RiShareLine } from "react-icons/ri";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -16,7 +16,7 @@ export default function HomePage() {
           <main className="flex flex-col w-[95%] mx-auto my-10 gap-15">
             <section>
               <div className="flex justify-between items-center mt-5">
-                <div className="w-[70%] mx-auto flex flex-col gap-4">
+                <div className="w-[60%] mx-auto flex flex-col gap-4">
                   <div className="flex flex-col gap-4">
                     <h1 className="lg:text-5xl text-2xl font-bold">Découvrez les <br /> meilleurs projets du CongoCD</h1>
                     <p className="w-[50%] lg:text-lg text-zinc-600">Découvrez le travail des designers les plus talentueux et les plus accomplis, prêts à entreprendre votre prochain projet.</p>
@@ -34,15 +34,21 @@ export default function HomePage() {
                     </div>
                   </div>
                 </div>
-                <div className="w-[30%] mx-auto">
-                  <div className="w-full h-[300px] relative border border-zinc-950/10 rounded-2xl"></div>
+                <div className="w-[40%] mx-auto">
+                  <div className="w-full h-[400px] relative border border-zinc-950/10 rounded-2xl">
+                    <Image
+                      src="/ct.webp"        // <-- corrige l’extension !
+                      alt="Project Image"
+                      fill
+                      className="object-cover rounded-xl"
+                    /></div>
                 </div>
               </div>
             </section>
 
             {/* Annonce Section */}
             <section className="">
-              <div className="w-full h-[60px] px-4 flex justify-start items-center gap-4 relative border border-zinc-950/5 rounded-2xl">
+              <div className="w-full h-[60px] bg-zinc-50 px-4 flex justify-start items-center gap-4 relative border border-zinc-950/5 rounded-2xl">
                 <span className="border-4 border-[#FFD700] p-1 rounded-xl font-semibold">Annonce</span>
                 <p className="font-light">Dites-nous ce dont vous avez besoin et soyez instantanément mis en relation avec des talents de classe mondiale prêts à travailler sur votre projet.</p>
               </div>
@@ -50,44 +56,122 @@ export default function HomePage() {
 
             {/* Projects Preview Section */}
             <section className="">
-              <div className="grid lg:grid-cols-3 gap-4">
-                <div className="border border-zinc-950/5 p-1 rounded-xl flex flex-col gap-2">
-                
-                  <div className="w-full h-72 relative rounded-xl overflow-hidden">
-                    <Image
-                      src="/ct.webp"        // <-- corrige l’extension !
-                      alt="Project Image"
-                      fill
-                      className="object-cover rounded-xl"
-                    />
-                  </div>
+              <div className="flex flex-col">
 
-                  <div className="flex flex-col px-3 py-2 gap-2">
-
-                    <div className="flex flex-col mb-4 gap-2">
-                      <div className="flex justify-between items-center mb-2">
-                        <h2 className="font-bold text-lg">
-                          <Logo />
-                        </h2>
-                        <div className="flex gap-4">
-                          <GrFavorite size={25} />
-                          <RiShareLine size={25} />
+                <div className="grid lg:grid-cols-3 gap-4 mb-6">
+                  <div className="border border-zinc-950/10 p-1 rounded-xl flex flex-col gap-2">
+                    <div className="w-full h-72 relative rounded-xl overflow-hidden">
+                      <Image
+                        src="/ct.webp"
+                        alt="Project Image"
+                        fill
+                        className="object-cover rounded-xl"
+                      />
+                    </div>
+                    <div className="flex flex-col px-3 py-3 gap-2">
+                      <div className="flex flex-col mb-4 gap-2">
+                        <div className="flex justify-between items-center mb-2">
+                          <h2 className="font-bold text-lg">
+                            <Logo />
+                          </h2>
+                          <div className="flex gap-4">
+                            <GrFavorite size={25} />
+                            <RiShareLine size={25} />
+                          </div>
+                        </div>
+                        <p className="font-light text-sm line-clamp-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum velit assumenda ullam sint facere animi beatae, nesciunt eos molestias eaque! Non ut tenetur dolorum? Perferendis culpa sequi quo nesciunt voluptatibus.</p>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <div className="">
+                          <span className="border border-zinc-950/5 rounded-full px-2 py-1 bg-[#007FFF] text-white">TypeScript</span>
+                        </div>
+                        <div className="">
+                          <a href="#" className="font-light hover:underline hover:text-[#007FFF]">Jules MUKADI</a>
                         </div>
                       </div>
-                      <p className="font-light text-sm line-clamp-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum velit assumenda ullam sint facere animi beatae, nesciunt eos molestias eaque! Non ut tenetur dolorum? Perferendis culpa sequi quo nesciunt voluptatibus.</p>
                     </div>
+                  </div>
 
-                    <div className="flex justify-between items-center">
-                      <div className="">
-                        <span className="border border-zinc-950/5 rounded-full px-2 py-1 bg-[#007FFF] text-white">TypeScript</span>
+                  <div className="border border-zinc-950/10 p-1 rounded-xl flex flex-col gap-2">
+                    <div className="w-full h-72 relative rounded-xl overflow-hidden">
+                      <Image
+                        src="/preview.webp"
+                        alt="Project Image"
+                        fill
+                        className="object-cover rounded-xl"
+                      />
+                    </div>
+                    <div className="flex flex-col px-3 py-3 gap-2">
+                      <div className="flex flex-col mb-4 gap-2">
+                        <div className="flex justify-between items-center mb-2">
+                          <h2 className="font-bold text-lg">
+                            <Logo />
+                          </h2>
+                          <div className="flex gap-4">
+                            <GrFavorite size={25} />
+                            <RiShareLine size={25} />
+                          </div>
+                        </div>
+                        <p className="font-light text-sm line-clamp-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum velit assumenda ullam sint facere animi beatae, nesciunt eos molestias eaque! Non ut tenetur dolorum? Perferendis culpa sequi quo nesciunt voluptatibus.</p>
                       </div>
-                      <div className="">
-                        <a href="#" className="font-light hover:underline hover:text-[#007FFF]">Jules MUKADI</a>
+                      <div className="flex justify-between items-center">
+                        <div className="">
+                          <span className="border border-zinc-950/5 rounded-full px-2 py-1 bg-[#007FFF] text-white">TypeScript</span>
+                        </div>
+                        <div className="">
+                          <a href="#" className="font-light hover:underline hover:text-[#007FFF]">Jules MUKADI</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    <div className="border border-zinc-950/10 p-1 rounded-xl flex flex-col gap-2">
+                    <div className="w-full h-72 relative rounded-xl overflow-hidden">
+                      <Image
+                        src="/preview.webp"
+                        alt="Project Image"
+                        fill
+                        className="object-cover rounded-xl"
+                      />
+                    </div>
+                    <div className="flex flex-col px-3 py-3 gap-2">
+                      <div className="flex flex-col mb-4 gap-2">
+                        <div className="flex justify-between items-center mb-2">
+                          <h2 className="font-bold text-lg">
+                            <Logo />
+                          </h2>
+                          <div className="flex gap-4">
+                            <GrFavorite size={25} />
+                            <RiShareLine size={25} />
+                          </div>
+                        </div>
+                        <p className="font-light text-sm line-clamp-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum velit assumenda ullam sint facere animi beatae, nesciunt eos molestias eaque! Non ut tenetur dolorum? Perferendis culpa sequi quo nesciunt voluptatibus.</p>
+                      </div>
+                      <div className="flex justify-between items-center">
+                        <div className="">
+                          <span className="border border-zinc-950/5 rounded-full px-2 py-1 bg-[#007FFF] text-white">TypeScript</span>
+                        </div>
+                        <div className="">
+                          <a href="#" className="font-light hover:underline hover:text-[#007FFF]">Jules MUKADI</a>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+
+                <div className="mt-6">
+                  <div className="flex justify-center gap-8">
+                    <Link href={'#'} className="border py-2 px-3 border-zinc-950/5">Précédent</Link>
+                    <div className="flex gap-3">
+                      <Link href={'#'} className="border py-2 px-3 border-zinc-950/5">1</Link>
+                      <Link href={'#'} className="border py-2 px-3 border-zinc-950/5">2</Link>
+                      <Link href={'#'} className="border py-2 px-3 border-zinc-950/5">3</Link>
+                    </div>
+                    <Link href={'#'} className="border py-2 px-3 border-zinc-950/5">Suivant</Link>
+                  </div>
+                </div>
               </div>
+
             </section>
           </main>
         </Suspense>
